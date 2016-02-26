@@ -1,10 +1,11 @@
 {
   "name": "contacts-keeper",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React app that let's the user save information about their contacts - name, date of birth, phone number, email address, & notes.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,10 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "webpack": "^1.12.14"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "superagent": "^1.7.2"
   }
 }
