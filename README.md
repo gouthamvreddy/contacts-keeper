@@ -46,4 +46,10 @@ The challenge requirements seem vague, am I missing something?
 - This prompt is designed to be open-ended, so feel free to be creative in the areas that lack strict guidelines.
 
 # Running My App (README.md)
---- Insert your readme here ---
+
+### Installation
+```
+$ npm install
+$ npm run build
+$ npm start
+```
