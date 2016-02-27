@@ -1,0 +1,46 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  color: white;
+  background-color: orange;
+  border-bottom: 30px solid LightGray;
+  border-top: 30px solid orange;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  font-weight: 200 !important;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 40px;
+}
+
+.btn-primary {
+  color: white;
+  background-color: orange;
+  border: white;
+}
+
+.modal-header {
+  color: white;
+  background-color: #006dcc;
+}
+
+.fa-times-circle {
+  color: white;
+}
+
+.btn-default {
+  color: white;
+  background-color: gray;
+}
