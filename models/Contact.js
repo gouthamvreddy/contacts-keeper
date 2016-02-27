@@ -29,3 +29,5 @@ Contact.sync().then(function() {
     console.log(contact);
   })
 })
+
+module.exports = Contact;
