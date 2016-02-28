@@ -19,12 +19,30 @@
 <body>
   <header><h2>Contacts Keeper</h2></header>
   <nav>
-    <div id="search-box"><input value="Search"><i class="fa fa-search"></i></input></div>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <div id="search-box"><input placeholder="Search"><span class="fa fa-search"></span></input></div>
+    <button type="button" class="btn btn-primary btn-md-2" data-toggle="modal" data-target="#myModal">
       <span class="fa fa-plus-circle"></span>
       Contacts  Keeper
     </button>
   </nav>
+  <table class="table table-bordered">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Goutham</td>
+      <td>Reddy</td>
+      <td>02/27/2016</td>
+      <td>650-430-5216</td>
+      <td>gouthamvreddy@gmail.com</td>
+      <td>Hello World!</td>
+    </tr>
+  </table>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -43,5 +61,6 @@
       </div>
     </div>
   </div>
+  <footer></footer>
 </body>
 </html>
