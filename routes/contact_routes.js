@@ -13,4 +13,12 @@ module.exports = function(router) {
         res.json(contacts);
       })
   })
+
+  router.delete('/contacts/:id', function(req, res) {
+    Contact.destroy({where: {id: parseInt(req.params.id)}})
+          .then(function() {
+            console.log("Successfully deleted!");
+          })
+  })
+
 };
