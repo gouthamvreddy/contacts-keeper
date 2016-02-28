@@ -16,8 +16,8 @@ module.exports = function(router) {
 
   router.delete('/contacts/:id', function(req, res) {
     Contact.destroy({where: {id: parseInt(req.params.id)}})
-          .then(function() {
-            console.log("Successfully deleted!");
+          .then(function(err) {
+            res.json({msg: "Contact was successfully deleted!"});
           })
   })
 

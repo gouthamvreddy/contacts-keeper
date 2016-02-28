@@ -1,5 +1,6 @@
 import React from 'react';
 import request from 'superagent';
+import _ from 'lodash';
 
 export default class Table extends React.Component {
   constructor(props) {
@@ -21,6 +22,8 @@ export default class Table extends React.Component {
     if(deleteConfirm) {
       request.delete('/api/contacts/' + contact.id)
             .end((err, res) => console.log(res));
+      const updatedContacts = _.remove(this.state.contacts, ele => ele.id === contact.id ? 0 : 1);
+      this.setState({contacts: updatedContacts});
     }
     console.log(contact.id);
   }
