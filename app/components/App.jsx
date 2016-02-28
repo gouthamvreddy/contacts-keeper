@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './Header';
+import Search from './Search';
+import Create from './Create';
 import Table from './Table';
 
 export default class App extends React.Component {
@@ -7,7 +9,12 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
+        <nav>
+          <Search />
+          <Create />
+        </nav>
         <Table />
+        <footer></footer>
       </div>
     );
   }
