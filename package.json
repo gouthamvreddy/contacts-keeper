@@ -2,7 +2,7 @@
   "name": "contacts-keeper",
   "version": "0.0.1",
   "description": "React app that let's the user save information about their contacts - name, date of birth, phone number, email address, & notes.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "build": "webpack"
