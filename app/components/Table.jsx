@@ -3,35 +3,14 @@ import request from 'superagent';
 import _ from 'lodash';
 
 export default class Table extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {contacts: []};
-  }
 
-  componentWillMount() {
-    request.get('/api/contacts')
-          .end((err, res) => {
-            console.log(res);
-            this.setState({contacts: res.body});
-          });
-  }
 
-  delete(contact) {
-    const deleteConfirm = confirm(`Are you sure you'd like to delete ${contact.first_name}` +
-                                  ` ${contact.last_name} from your contacts?`);
-    if(deleteConfirm) {
-      request.delete('/api/contacts/' + contact.id)
-            .end((err, res) => console.log(res));
-      const updatedContacts = _.remove(this.state.contacts, ele => ele.id === contact.id ? 0 : 1);
-      this.setState({contacts: updatedContacts});
-    }
-    console.log(contact.id);
-  }
+
 
   render() {
-    const contacts = this.state.contacts.map((contact) => {
+    const contacts = this.props.contacts.map((contact) => {
       return (
-        <tr onClick={this.delete.bind(this, contact)} key={contact.id}>
+        <tr onClick={this.props.handleDelete.bind(this, contact)} key={contact.id}>
           <td>{contact.first_name}</td>
           <td>{contact.last_name}</td>
           <td>{contact.dob}</td>
