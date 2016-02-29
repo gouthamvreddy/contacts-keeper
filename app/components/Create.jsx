@@ -1,6 +1,24 @@
 import React from 'react';
+import request from 'superagent';
 
 export default class Create extends React.Component {
+
+  handleSave() {
+    request.post('/api/contacts')
+          .send({
+            first_name: this.refs.first_name.value,
+            last_name: this.refs.last_name.value,
+            dob: this.refs.dob.value,
+            phone: this.refs.phone.value,
+            email: this.refs.email.value,
+            notes: this.refs.notes.value
+          })
+          .end((err, res) => {
+            if(err) throw err;
+            console.log(res);
+          })
+  }
+
   render() {
     return (
       <div>
@@ -21,28 +39,28 @@ export default class Create extends React.Component {
                 <form>
                   <div className="form-group">
                     <label htmlFor="first_name">First Name</label>
-                    <input type="text" className="form-control" id="first_name" />
+                    <input type="text" className="form-control" ref="first_name" />
                     <label htmlFor="last_name">Password</label>
-                    <input type="text" className="form-control" id="last_name" />
+                    <input type="text" className="form-control" ref="last_name" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="dob">Date of Birth</label>
-                    <input type="date" className="form-control" id="dob" />
+                    <input type="date" className="form-control" ref="dob" />
                     <label htmlFor="phone">Phone Number</label>
-                    <input type="text" className="form-control" id="phone" />
+                    <input type="text" className="form-control" ref="phone" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" className="form-control" id="email" />
+                    <input type="email" className="form-control" ref="email" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="notes">Notes</label>
-                    <input type="text" className="form-control" id="notes" />
+                    <input type="text" className="form-control" ref="notes" />
                   </div>
                 </form>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-default" data-dismiss="modal">Save</button>
+                <button type="button" className="btn btn-default" onClick={this.handleSave.bind(this)} data-dismiss="modal">Save</button>
               </div>
             </div>
           </div>

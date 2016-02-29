@@ -20,8 +20,6 @@ export default class App extends React.Component {
   }
 
   handleDelete(contact) {
-    var x = this.state.contacts;
-    console.log(x);
     const deleteConfirm = confirm(`Are you sure you'd like to delete ${contact.first_name}` +
                                   ` ${contact.last_name} from your contacts?`);
     if(deleteConfirm) {
