@@ -4,9 +4,6 @@ import _ from 'lodash';
 
 export default class Table extends React.Component {
 
-
-
-
   render() {
     const contacts = this.props.contacts.map((contact) => {
       return (
@@ -25,7 +22,7 @@ export default class Table extends React.Component {
       <table className="table table-bordered">
         <thead>
           <tr>
-            <th>First Name</th>
+            <th onClick={this.props.handleSort}>First Name</th>
             <th>Last Name</th>
             <th>Date of Birth</th>
             <th>Phone</th>

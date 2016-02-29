@@ -8,10 +8,14 @@ import Table from './Table';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {contacts: []};
+    this.state = {
+      contacts: [],
+      sortOrder: 0
+    };
 
     this.handleCreate = this.handleCreate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
 
   componentWillMount() {
@@ -20,6 +24,13 @@ export default class App extends React.Component {
             console.log(res);
             this.setState({contacts: res.body});
           });
+  }
+
+  handleSort() {
+    const sortedContacts = this.state.sortOrder ?
+      this.state.contacts.sort((a,b) => a.first_name.localeCompare(b.first_name))
+      : this.state.contacts.sort((a,b) => b.first_name.localeCompare(a.first_name));
+    this.setState({contacts: sortedContacts, sortOrder: !this.state.sortOrder});
   }
 
   handleCreate(newContact) {
@@ -45,7 +56,9 @@ export default class App extends React.Component {
           <Search />
           <Create handleCreate={this.handleCreate} />
         </nav>
-        <Table contacts={this.state.contacts} handleDelete={this.handleDelete}/>
+        <Table contacts={this.state.contacts}
+          handleDelete={this.handleDelete}
+          handleSort={this.handleSort} />
         <footer></footer>
       </div>
     );
