@@ -4,15 +4,17 @@ import request from 'superagent';
 export default class Create extends React.Component {
 
   handleSave() {
+    const newContact = {
+      first_name: this.refs.first_name.value,
+      last_name: this.refs.last_name.value,
+      dob: this.refs.dob.value,
+      phone: this.refs.phone.value,
+      email: this.refs.email.value,
+      notes: this.refs.notes.value
+    };
+    this.props.handleCreate(newContact);
     request.post('/api/contacts')
-          .send({
-            first_name: this.refs.first_name.value,
-            last_name: this.refs.last_name.value,
-            dob: this.refs.dob.value,
-            phone: this.refs.phone.value,
-            email: this.refs.email.value,
-            notes: this.refs.notes.value
-          })
+          .send(newContact)
           .end((err, res) => {
             if(err) throw err;
             console.log(res);

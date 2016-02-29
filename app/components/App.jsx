@@ -9,6 +9,9 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {contacts: []};
+
+    this.handleCreate = this.handleCreate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillMount() {
@@ -19,16 +22,19 @@ export default class App extends React.Component {
           });
   }
 
+  handleCreate(newContact) {
+    this.setState({contacts: this.state.contacts.concat(newContact)});
+  }
+
   handleDelete(contact) {
     const deleteConfirm = confirm(`Are you sure you'd like to delete ${contact.first_name}` +
                                   ` ${contact.last_name} from your contacts?`);
     if(deleteConfirm) {
       request.delete('/api/contacts/' + contact.id)
             .end((err, res) => console.log(res));
-      //const updatedContacts = _.filter(this.state.contacts, ele => ele.id === contact.id ? 0 : 1);
-      //this.setState({contacts: updatedContacts});
+      const updatedContacts = _.filter(this.state.contacts, ele => ele.id === contact.id ? 0 : 1);
+      this.setState({contacts: updatedContacts});
     }
-    console.log(contact.id);
   }
 
   render() {
@@ -37,7 +43,7 @@ export default class App extends React.Component {
         <Header />
         <nav>
           <Search />
-          <Create />
+          <Create handleCreate={this.handleCreate} />
         </nav>
         <Table contacts={this.state.contacts} handleDelete={this.handleDelete}/>
         <footer></footer>
