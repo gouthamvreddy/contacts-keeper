@@ -24,14 +24,14 @@ var data = [{
   dob: "2/27/2016",
   phone: "650-430-5216",
   email: "gouthamvreddy@gmail.com",
-  notes: "blah blah blah"
+  notes: "traveler, hiker, gradener, & engineer"
 },
 {
   first_name: "Johnny",
   last_name: "Appleseed",
   dob: "9/26/1774",
   phone: "260-250-8726",
-  email: "johnny_apple@aol.com",
+  email: "johnny_apple@iCloud.com",
   notes: "missionary and gardener"
 },
 {

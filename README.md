@@ -47,9 +47,29 @@ The challenge requirements seem vague, am I missing something?
 
 # Running My App (README.md)
 
+### Demo
+
+http://contactskeeper.herokuapp.com/
+
 ### Installation
 ```
 $ npm install
 $ npm run build
 $ npm start
 ```
+
+### Features
+
+- Data persistence through a free cloud-based PostGRES service from ElephantSQL
+- Clicking on table row will allow for deleting contact
+- Clicking on First Name column will changes sort order from ASC to DESC
+
+### TODOS
+
+- Clear modal window after saving
+- Cleanup CSS
+- Complete search filter
+- Allow sorting by other columns
+- Add arrow icon on table columns to indicate sort order & icon for deleting contacts
+- Handle errors from database and warn user that operation has not been saved
+- Add data validation on the front-end & database

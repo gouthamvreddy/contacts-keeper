@@ -10,12 +10,15 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       contacts: [],
-      sortOrder: 0
+      sortOrder: 0,
+      sortColumn: "first_name",
+      filter: ""
     };
 
     this.handleCreate = this.handleCreate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSort = this.handleSort.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentWillMount() {
@@ -31,6 +34,10 @@ export default class App extends React.Component {
       this.state.contacts.sort((a,b) => a.first_name.localeCompare(b.first_name))
       : this.state.contacts.sort((a,b) => b.first_name.localeCompare(a.first_name));
     this.setState({contacts: sortedContacts, sortOrder: !this.state.sortOrder});
+  }
+
+  handleSearch(searchInput) {
+    this.setState({filter: searchInput});
   }
 
   handleCreate(newContact) {
@@ -53,12 +60,14 @@ export default class App extends React.Component {
       <div>
         <Header />
         <nav>
-          <Search />
+          <Search filter={this.handleSearch} />
           <Create handleCreate={this.handleCreate} />
         </nav>
         <Table contacts={this.state.contacts}
           handleDelete={this.handleDelete}
-          handleSort={this.handleSort} />
+          handleSort={this.handleSort}
+          searchInput={this.state.filter}
+          sortColumn={this.state.sortColumn} />
         <footer></footer>
       </div>
     );

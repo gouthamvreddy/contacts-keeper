@@ -19,21 +19,23 @@ export default class Table extends React.Component {
     });
 
     return (
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th onClick={this.props.handleSort}>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contacts}
-        </tbody>
-      </table>
+      <div id="table-container">
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th onClick={this.props.handleSort}>First Name</th>
+              <th>Last Name</th>
+              <th>Date of Birth</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

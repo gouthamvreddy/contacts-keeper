@@ -42,7 +42,7 @@ export default class Create extends React.Component {
                   <div className="form-group">
                     <label htmlFor="first_name">First Name</label>
                     <input type="text" className="form-control" ref="first_name" />
-                    <label htmlFor="last_name">Password</label>
+                    <label htmlFor="last_name">Last Name</label>
                     <input type="text" className="form-control" ref="last_name" />
                   </div>
                   <div className="form-group">
