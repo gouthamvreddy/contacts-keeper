@@ -60,7 +60,7 @@ $ npm start
 
 ### Features
 
-- Data persistence through a free cloud-based PostGRES service from ElephantSQL
+- Data persistence through a free cloud-based PostGRES service from ElephantSQL.com
 - Clicking on table row will allow for deleting contact
 - Clicking on First Name column will changes sort order from ASC to DESC
 
@@ -70,6 +70,7 @@ $ npm start
 - Cleanup CSS
 - Complete search filter
 - Allow sorting by other columns
+- Add route to edit contact info
 - Add arrow icon on table columns to indicate sort order & icon for deleting contacts
 - Handle errors from database and warn user that operation has not been saved
 - Add data validation on the front-end & database
