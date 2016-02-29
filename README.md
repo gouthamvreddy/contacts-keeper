@@ -57,6 +57,7 @@ $ npm install
 $ npm run build
 $ npm start
 ```
+Open your browser and navigate to `localhost:3000`
 
 ### Features
 
