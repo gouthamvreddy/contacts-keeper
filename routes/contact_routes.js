@@ -8,7 +8,8 @@ module.exports = function(router) {
 
   router.get('/contacts', function(req, res) {
     Contact.findAll({
-      attributes: ["id", "first_name", "last_name", "dob", "phone", "email", "notes" ]
+      attributes: ["id", "first_name", "last_name", "dob", "phone", "email", "notes" ],
+      order: ["first_name", "last_name"]
     })
       .then(function(contacts) {
         res.json(contacts);

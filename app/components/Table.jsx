@@ -10,7 +10,7 @@ export default class Table extends React.Component {
         <tr onClick={this.props.handleDelete.bind(this, contact)} key={contact.id}>
           <td>{contact.first_name}</td>
           <td>{contact.last_name}</td>
-          <td>{contact.dob}</td>
+          <td>{contact.dob.substring(0,10)}</td>
           <td>{contact.phone}</td>
           <td>{contact.email}</td>
           <td>{contact.notes}</td>
