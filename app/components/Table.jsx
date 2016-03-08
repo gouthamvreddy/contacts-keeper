@@ -1,8 +1,11 @@
 import React from 'react';
 import request from 'superagent';
-import _ from 'lodash';
 
 export default class Table extends React.Component {
+
+  handleClick(e) {
+    this.props.handleSort(e.target.id);
+  }
 
   render() {
     const contacts = this.props.contacts.map((contact) => {
@@ -21,14 +24,14 @@ export default class Table extends React.Component {
     return (
       <div id="table-container">
         <table className="table table-bordered">
-          <thead>
+          <thead onClick={this.handleClick.bind(this)}>
             <tr>
-              <th onClick={this.props.handleSort}>First Name</th>
-              <th>Last Name</th>
-              <th>Date of Birth</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>Notes</th>
+              <th id="first_name">First Name</th>
+              <th id="last_name">Last Name</th>
+              <th id="dob">Date of Birth</th>
+              <th id="phone">Phone</th>
+              <th id="email">Email</th>
+              <th id="notes" >Notes</th>
             </tr>
           </thead>
           <tbody>

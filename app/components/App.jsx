@@ -1,5 +1,6 @@
 import React from 'react';
 import request from 'superagent';
+import _ from 'lodash';
 import Header from './Header';
 import Search from './Search';
 import Create from './Create';
@@ -29,10 +30,10 @@ export default class App extends React.Component {
           });
   }
 
-  handleSort() {
+  handleSort(column) {
     const sortedContacts = this.state.sortOrder ?
-      this.state.contacts.sort((a,b) => a.first_name.localeCompare(b.first_name))
-      : this.state.contacts.sort((a,b) => b.first_name.localeCompare(a.first_name));
+      this.state.contacts.sort((a,b) => a[column].localeCompare(b[column]))
+      : this.state.contacts.sort((a,b) => b[column].localeCompare(a[column]));
     this.setState({contacts: sortedContacts, sortOrder: !this.state.sortOrder});
   }
 
