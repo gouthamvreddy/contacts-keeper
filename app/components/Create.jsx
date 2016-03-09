@@ -12,12 +12,12 @@ export default class Create extends React.Component {
       email: this.refs.email.value,
       notes: this.refs.notes.value
     };
-    this.props.handleCreate(newContact);
     request.post('/api/contacts')
           .send(newContact)
           .end((err, res) => {
             if(err) throw err;
-            console.log(res);
+            newContact.id = res.body.id;
+            this.props.handleCreate(newContact);
           })
   }
 

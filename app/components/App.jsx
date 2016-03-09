@@ -34,7 +34,7 @@ export default class App extends React.Component {
     const sortedContacts = this.state.sortOrder ?
       this.state.contacts.sort((a,b) => a[column].localeCompare(b[column]))
       : this.state.contacts.sort((a,b) => b[column].localeCompare(a[column]));
-    this.setState({contacts: sortedContacts, sortOrder: !this.state.sortOrder});
+    this.setState({contacts: sortedContacts, sortOrder: !this.state.sortOrder, sortColumn: column});
   }
 
   handleSearch(searchInput) {

@@ -25,8 +25,9 @@ module.exports = function(router) {
       email: req.body.email,
       notes: req.body.notes
     };
-    Contact.create(newContact).then(function(err) {
-      res.json({msg: "Contact was successfully added!"});
+    Contact.create(newContact).then(function(contact) {
+      res.json({id: contact.dataValues.id,
+                msg: "Contact was successfully added!"});
     })
   })
 
